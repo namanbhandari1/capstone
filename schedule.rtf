@@ -7,28 +7,42 @@
 
 \f0\fs24 \cf0 1. Load and clean CSVs and shrink file sizes:\
 	-BenefitsCostSharing\
-	-PlanAttributes\
 	-Rate\
-	-ServiceArea\
+	-PlanAttributes\
 \
-2. Convert list of benefits associated with each plan into columnar features\
+2. BenefitsCostSharing\
+	-Convert list of benefits associated with each plan into columnar features\
+	-Exclude all benefits that are \'93Not Covered\'94 by plan\
+	-Important to keep CoinsINN, CoinsOON, CopayINN, CopayOON, IsSubjToDedTier1, IsSubjToDedTier2, IsExclFromInnMOOP, IsExclFromOonMOOP, IssuerId, LimitQty, LimitUnit, MinimumStay, StateCode. Need to call for these values when someone wants to view more plan details\
+	-Remove PlanID column, which is just a cost sharing reduction variant of the plan\
+	-Can remove rows that are not in the year we are analyzing\
+	-Remove cols EHBVarReason, Exclusions, Explanation, ImportDate, IsEHB, IsStateMandate, VersionNum, State\
 \
 3. Use Rate file as master file of plans, to which features will be appended\
+	-Limit rate file to only year 2016 (will reduce rows)\
+	-Remove cols SourceName,VersionNum, ImportDate, IssuerId2, FederalTIN\
+	-Consumers will be weighed against these cols: Tobacco, Age.\
+	-Keep IndividualRate, RateEffective, RateExpiration. Need to call for these values when someone wants to view more plan details.\
+	-Drop RatingAreaId\
+\
+4. Evaluate whether PlanAttributes should be included in analysis:\
+	-Need to make sure we have one row per plan\
+	-If so, Important cols, like IsHSAEligible should be included as a parameter. Will also need other columns to return when a user requests plan details.\
 		\
 DONE BY 10/1\
 	\
-4. Build models for plan relationships based on attributes\
+5. Build models for plan relationships based on attributes\
 \
 DONE BY 10/8\
 \
-5. Build filtering tool that lets users filter by criteria before selecting benefits:\
+6. Build filtering tool that lets users filter by criteria before selecting benefits:\
 	-Age\
 	-State\
 	-Price Range\
 \
 DONE BY 10/15	\
 \
-6. Build tool that lets user enter selected plan and returns summary cost features:\
+7. Build tool that lets user enter selected plan and returns summary cost features:\
 	-Deductible\
 	-Copays\
 	-Coinsurance\
