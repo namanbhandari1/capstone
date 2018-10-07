@@ -31,3 +31,30 @@ Using a recommendation engine such as this, consumers can select the benefits th
 I will be using data available in this Kaggle competition (https://www.kaggle.com/hhs/health-insurance-marketplace/home) to perform analysis and build a recommender system.
 
 The data I will be using is split up into various CSV files totaling 3.4GB in disk size. When loaded, the CSV files are larger, but can be shrunk by casting object type columns as category type columns. In addition, the data is also presented in SQL database format, which I will consider using. The raw data has close to 800 different benefits, some of which will be combined under single categories based on domain knowledge.
+
+---
+
+## Milestone 3
+
+1. Do you have data fully in hand and if not, what blockers are you facing?  
+Ans: I have all my data. My data was obtained via Kaggle.
+
+2. Have you done a full EDA on all of your data?  
+Ans: Not all of it, but in process. I do have my data set up and ready to model.
+
+3. Have you begun the modeling process? How accurate are your predictions so far?  
+Ans: I am doing a recommender system. My system is finding health insurance plans with around 90%+ accuracy, so it's performing well.
+
+4. What blockers are you facing, including processing power, data acquisition, modeling difficulties, data cleaning, etc.? How can we help you overcome those challenges?  
+Ans: I would like to figure out the most efficient way to generate a new vector based on user input. Currently, I'm creating a new dataframe populated with 0s and then mapping a 1 for each feature selected by a user. That becomes my vector against which I calculate cosine similarity.
+
+5. Have you changed topics since your lightning talk? Since you submitted your Problem Statement and EDA?  Ans: I have not changed my topics since my lightning talk or since I submitted by Problem Statement.
+
+6. If so, do you have the necessary data in hand (and the requisite EDA completed) to continue moving forward?  
+Ans: I do have the necessary data in hand and have performed the required EDA to continue moving forward.
+
+7. What is your timeline for the next week and a half? What do you have to get done versus what would you like to get done?  
+Ans: Over the next week and a half, I will set up my data structures in a way that users can efficiently select features via prompt and using auto-complete, and be displayed a set of health insurance plans that they can get more information about.
+
+8. What topics do you want to discuss during your 1:1?  
+Ans: I want to discuss the best way to set up a scheme that asks for user input via an auto-complete form.
