@@ -36,6 +36,68 @@ The data I will be using is split up into various CSV files totaling 3.4GB in di
 
 ## Milestone 3
 
+### EDA
+
+- Started with 3 different CSV files as part of analysis, retrieved from Kaggle:
+    - Rate.csv (12,694,445 rows, 24 columns, 9.3GB loaded)
+    - BenefitsCostSharing.csv (5,048,408, 32 columns, 6.9GB loaded)
+    - PlanAttributes.csv (77353 rows, 176 columns, \__GB loaded)
+    
+- Shrank all CSVs by:
+    - Casting object columns as _category_ columns
+    - Filtered data by 2016 year (as only most recent year is relevant to recommendation analysis)
+
+- Engineered dataframes by:
+    - Merging some features together to account for mis-spellings and features that are "similar enough" to each other
+    - Creating dummy columns for all the unique features in `Benefits` so users can select by those features
+    - Added some columns from `PlanAttributes` to `Benefits` so users can select by those columns too 
+    
+- EDA:
+    - Distribution of monthly premiums for:
+        - Individuals
+        - Tobacco Users
+    - # of plans offered by state (39 states)
+    - Avg. plan premium by state (39 states)
+    
+    
+### Data Dictionary
+
+- 215 unique plan "types" over an assortment of 207 unique features
+- Data dictionary grouped into 3-4 "types" of features:
+
+Rate: (users can filter by the ones in **bold**)
+- 'BusinessYear',
+- **'StateCode',**
+- 'RateEffectiveDate',
+- 'RateExpirationDate',
+- 'PlanId',
+- 'RatingAreaId',
+- **'Tobacco',**
+- **'Age',**
+- **'IndividualRate',**
+- 'IndividualTobaccoRate',
+- **'Couple',**
+- **'PrimarySubscriberAndOneDependent',**
+- **'PrimarySubscriberAndTwoDependents',**
+- **'PrimarySubscriberAndThreeOrMoreDependents',**
+- **'CoupleAndOneDependent',**
+- **'CoupleAndTwoDependents',**
+- **'CoupleAndThreeOrMoreDependents',**
+
+Benefits
+- 215 "unique features"
+
+Attributes (users can filter by these)
+- 'IsNoticeRequiredForPregnancy',
+- 'IsReferralRequiredForSpecialist',
+- 'ChildOnlyOffering',
+- 'WellnessProgramOffered',
+- 'DiseaseManagementProgramsOffered',
+- 'OutOfCountryCoverage',
+- 'NationalNetwork'
+
+### Questions
+
 1. Do you have data fully in hand and if not, what blockers are you facing?  
 Ans: I have all my data. My data was obtained via Kaggle.
 
@@ -54,7 +116,7 @@ Ans: I would like to figure out the most efficient way to generate a new vector 
 Ans: I do have the necessary data in hand and have performed the required EDA to continue moving forward.
 
 7. What is your timeline for the next week and a half? What do you have to get done versus what would you like to get done?  
-Ans: Over the next week and a half, I will set up my data structures in a way that users can efficiently select features via prompt and using auto-complete, and be displayed a set of health insurance plans that they can get more information about.
+Ans: Over the next week and a half, I will set up my data structures in a way that users can efficiently select features via prompt and using auto-complete, and be displayed a set of health insurance plans that they can get more information about. Also, I would like to show users whether or not the features they selected ARE ACTUALLY included in the plans shown to them.
 
 8. What topics do you want to discuss during your 1:1?  
 Ans: I want to discuss the best way to set up a scheme that asks for user input via an auto-complete form.
