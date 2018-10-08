@@ -53,14 +53,13 @@ The data I will be using is split up into various CSV files totaling 3.4GB in di
     - Added some columns from `PlanAttributes` to `Benefits` so users can select by those columns too 
     
 - EDA:
-    - # of plans offered by state (39 states)
-    - Avg. plan premium by state (39 states)
+    - # of plans offered in 39 states
+    - Avg. plan premium in 39 states
     - Distribution of monthly premiums for: Individuals and Tobacco Users
     
 ### Data Dictionary
 
-- 215 unique plan "types" over an assortment of 207 unique features
-- Data dictionary grouped into 3-4 "types" of features:
+My data consists of 215 unique plan "types" over an assortment of 207 unique features. The below data dictionary grouped into 3-4 "types" of features:
 
 Rate: (users can filter by the ones in **bold**)
 - 'BusinessYear',
