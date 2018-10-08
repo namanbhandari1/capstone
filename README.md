@@ -38,7 +38,7 @@ The data I will be using is split up into various CSV files totaling 3.4GB in di
 
 ## Milestone 3: EDA and Data Dictionary
 
-### EDA
+### Data Overview
 
 - Started with 3 different CSV files as part of analysis, retrieved from Kaggle:
     - Rate.csv (12,694,445 rows, 24 columns, 9.3GB loaded)
@@ -54,10 +54,11 @@ The data I will be using is split up into various CSV files totaling 3.4GB in di
     - Creating dummy columns for all the unique features in `Benefits` so users can select by those features
     - Added some columns from `PlanAttributes` to `Benefits` so users can select by those columns too 
     
-- EDA:
-    - \# of plans offered in 39 states
-    - Avg. plan premium in 39 states
-    - Distribution of monthly premiums for: Individuals and Tobacco Users
+### EDA
+
+- \# of plans offered in 39 states
+- Avg. plan premium in 39 states
+- Distribution of monthly premiums for: Individuals and Tobacco Users
     
 ### Data Dictionary
 
