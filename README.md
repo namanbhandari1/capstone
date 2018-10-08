@@ -2,6 +2,7 @@
 ## Recommender System for Health Insurance Plans
 _By Naman Bhandari_
 
+## Milestone 2: Problem Statement
 
 ### Background
 
@@ -34,7 +35,7 @@ The data I will be using is split up into various CSV files totaling 3.4GB in di
 
 ---
 
-## Milestone 3
+## Milestone 3: EDA and Data Dictionary
 
 ### EDA
 
