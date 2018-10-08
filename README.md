@@ -53,12 +53,11 @@ The data I will be using is split up into various CSV files totaling 3.4GB in di
     - Added some columns from `PlanAttributes` to `Benefits` so users can select by those columns too 
     
 - EDA:
+    - # of plans offered by state (39 states)
+    - Avg. plan premium by state (39 states)
     - Distribution of monthly premiums for:
         - Individuals
         - Tobacco Users
-    - # of plans offered by state (39 states)
-    - Avg. plan premium by state (39 states)
-    
     
 ### Data Dictionary
 
