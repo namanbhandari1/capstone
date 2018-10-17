@@ -1,14 +1,14 @@
-# Capstone Project: A Recommender System for Health Insurance Plans
+# Capstone: A Recommender System for Health Insurance Plans
 _By Naman Bhandari_
 
 ## Directory Structure
-| .
-| ├── assets
-| ├── data
-| ├── notebooks
-| ├── pickles
-| ├── Final_Report.md
-| └── README.md
+.
+├── assets
+├── data
+├── notebooks
+├── pickles
+├── Final_Report.md
+└── README.md
 
 ### Background
 
