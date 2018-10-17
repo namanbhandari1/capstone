@@ -1,10 +1,9 @@
-schedule.rtf
-.DS_Store/*
-data/*
+data/
 pickles/benefits_dum.pkl
 pickles/benefits.pkl
 pickles/df.csv
 pickles/df.pkl
 pickles/rate.pkl
-notebooks/.ipynb_checkpoints/*
-notebooks/.DS_Store/*
+notebooks/.ipynb_checkpoints/
+notebooks/.DS_Store/
+/Milestone_3.md
