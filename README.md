@@ -50,3 +50,23 @@ Using a recommendation engine such as this, consumers can select the benefits th
 Using data from CMS and formatted and compiled by Kaggle (https://www.kaggle.com/hhs/health-insurance-marketplace/home), I have performed analysis and have built a recommender system.
 
 The data, in various CSV files, totals 3.4GB on disk. However, through various methods including some NumPy and Pandas manipulations, I have managed to compress the data when loaded, which was uploaded to a PostgreSQL server on AWS for querying. The raw data has close to 800 different benefits, some of which have been combined under single categories based on domain knowledge.
+
+## Directory Outline
+
+In this repository, you will not be able run notebooks 1 through 4 as the data referenced in those notebooks is not uploaded to this GitHub repository. However, notebook 5, the actual recommender system, can be run as it is connected an AWS instance in which my necessary data is stored, on a PostgreSQL server.
+
+* *[assets](notebooks)*
+
+> certain images rendered this and other markdown files.
+
+* *[notebooks](notebooks)*
+
+> Mostly Jupyter notebooks, which make up the bulk of this project.
+
+* *[pickles](notebooks)*
+
+> Where my serialized (aka "pickled") data, such as small dataframes and lists, is stored. Pickles are created my from my various notebooks, and each pickle can be loaded into any other notebook for reference.
+
+* *README.md*
+
+> This file.
