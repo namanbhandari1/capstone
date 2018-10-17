@@ -2,6 +2,7 @@
 _By Naman Bhandari_
 
 ## Directory Structure
+```
 .
 ├── assets
 ├── data
@@ -9,6 +10,9 @@ _By Naman Bhandari_
 ├── pickles
 ├── Final_Report.md
 └── README.md
+```
+
+## Project Outline
 
 ### Background
 
