@@ -29,7 +29,9 @@ When consumers of health insurance feel overwhelmed by choices and information, 
 
 When consumers choose an insurance plan, they need to be able to weigh trade-offs between cost and coverage for insurance features. Picking a plan that provides the coverage needed at an affordable priceis a difficult task. It is especially difficult when you don’t have a great understanding of the language that insurers use to describe plans.
 
+<p align="center">
 ![](/assets/scatter.png)
+</p>
 
 ### An Approach
 
@@ -37,7 +39,9 @@ The Centers for Medicaid and Medicare Services (CMS) provide data on health and 
 
 Using this data, we can build a system in which consumers can select the features they want in a health insurance plan and be presented a list of plans with their requested features and the price of the plan. We can evaluate the accuracy of our model by evaluating the mathematical distance (cosine similarity) between the features selected and the plans returned. Additionally, we can evaluate whether the benefits selected by the user are present in the list of plans presented to them, like so:
 
+<p align="center">
 ![](/assets/benefits_avail.png)
+</p>
 
 Using a recommendation engine such as this, consumers can select the benefits they want (examples: weight loss programs, chiropractic care, imaging, etc.) and be shown plans relevant to their health and be able to make better decision when purchasing insurance. A nimble, easy to navigate plan customization may also result in more uninsured people to purchase health insurance.
 
