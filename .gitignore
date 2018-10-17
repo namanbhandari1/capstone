@@ -6,3 +6,5 @@ pickles/benefits.pkl
 pickles/df.csv
 pickles/df.pkl
 pickles/rate.pkl
+notebooks/.ipynb_checkpoints/
+notebooks/.DS_Store/
