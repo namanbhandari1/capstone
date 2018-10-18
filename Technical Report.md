@@ -11,12 +11,12 @@ A Kaggle-hosted data exploration prompt, [Health Insurance Marketplace](https://
 
 I was provided with these six CSV files. I've used 3 of them in my analysis (in **bold**):
 
-**BenefitsCostSharing.csv** -- 
-BusinessRules.csv -- 
-Network.csv -- 
-**PlanAttributes.csv** -- 
-**Rate.csv** -- 
-ServiceArea.csv -- 
+- **BenefitsCostSharing.csv** -- contains plan-level data on essential health benefits and coverage limits. [Used to derive benefit names].
+- BusinessRules.csv -- plan-level data on rating business rules, such as allowed relationships (e.g., spouse, dependents) and tobacco use.
+- Network.csv -- identifies provider network URLs.
+- **PlanAttributes.csv** -- plan-level data on maximum out of pocket payments, deductibles, HSA eligibility, formulary ID, and other plan attributes.
+- **Rate.csv** -- plan-level data on individual rates based on an eligible subscriber’s age, tobacco use, and geographic location, and family-tier rates.
+- ServiceArea.csv -- issuer-level data on geographic service areas including state, county, and zip code
 
 These PUFs do not include data from the 11 states that have their own State-Based Exchanges, which do not rely on the federal platform for QHP eligibility and enrollment functionality. These states are:
 
