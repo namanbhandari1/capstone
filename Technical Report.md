@@ -77,7 +77,7 @@ Were collapsed into one, renamed benefit:
 After mapping plan names with my crosswalk, I one-hot encoded the benefits. To do this, I grouped by plan names and turned the rows benefits associated with each plan into columns for unique plan, filled with 1s and 0s based on coverage. This had the effect of reducing the number of rows, but increasing the number of columns in my data (data was made more rectangular).
 
 <p align="center">
-<img src="assets/square.png" />
+<img src="assets/square2.png" />
 </p>
 
 ### Identify unique vectors
