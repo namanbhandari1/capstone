@@ -8,11 +8,10 @@ Note: notebooks \#1-4 cannot be run as they rely on certain pkl files that are n
 ```
 .
 ├── assets
-├── data
 ├── notebooks
 ├── pickles
-├── Final_Report.md
-└── README.md
+├── README.md
+└── Technical_Report.md
 ```
 
 ## Project Outline
@@ -75,7 +74,7 @@ Data necessary for querying and serving user recommendations was stored in a Pos
 
 In this repository, you will not be able run notebooks 1 through 4 as the data referenced in those notebooks is not uploaded to this GitHub repository. However, notebook 5, the actual recommender system, can be run as it is connected an AWS instance in which my necessary data is stored, on a PostgreSQL server.
 
-* *[assets](notebooks)*
+* *[assets](assets)*
 
 > certain images rendered this and other markdown files.
 
@@ -83,10 +82,14 @@ In this repository, you will not be able run notebooks 1 through 4 as the data r
 
 > Mostly Jupyter notebooks, which make up the bulk of this project.
 
-* *[pickles](notebooks)*
+* *[pickles](pickles)*
 
 > Where my serialized (aka "pickled") data, such as small dataframes and lists, is stored. Pickles are created my from my various notebooks, and each pickle can be loaded into any other notebook for reference.
 
 * *README.md*
 
 > This file.
+
+* *[Technical_Report.md](./Technical_Report.md)*
+
+> Where my serialized (aka "pickled") data, such as small dataframes and lists, is stored. Pickles are created my from my various notebooks, and each pickle can be loaded into any other notebook for reference.
