@@ -1,4 +1,4 @@
-.DS_Store/
+/.DS_Store/
 data/
 pickles/benefits_dum.pkl
 pickles/benefits.pkl

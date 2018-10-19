@@ -129,21 +129,9 @@ Using a library called `tkinter`, which is the standard Python interface to the 
 
 A vector is created based on the benefits selected by the user and is compared against my `no_dupes` matrix. I perform a calculation called `cosine similarity`, using the scikit-learn cosine similarity library, which calculates the mathematical distance between two vectors. Based on such similarity, and list of matching plan types are shown:
 
-+----------------+--------------+-----------+
-|   Plan Variant |   Similarity |   Index # |
-+================+==============+===========+
-|            214 |     0.235702 |         0 |
-+----------------+--------------+-----------+
-|              7 |     0.200446 |         1 |
-+----------------+--------------+-----------+
-|              8 |     0.19696  |         2 |
-+----------------+--------------+-----------+
-|             86 |     0.1905   |         3 |
-+----------------+--------------+-----------+
-|            157 |     0.181902 |         4 |
-+----------------+--------------+-----------+
-|            156 |     0.181902 |         5 |
-+----------------+--------------+-----------+
+<p align="center">
+<img src="assets/tabulate.png" />
+</p>
 
 The user can then view all the plans available in the plan type selected. Individual plans in a given plan type chiefly vary by the geographic area in which the plan is offered, which CMS has defined for each state as part of the legislation passed in the Affordable Care Act.
 
@@ -167,6 +155,6 @@ Using a recommendation engine such as this, consumers can select the benefits th
 
 **Conduct additional analysis on premiums** - perform a regression analysis that can identify the specific benefits that are the greatest contributors to cost in a given plan, and provide such proprietary information to the user.
 
-**Links to actual plans** - give users a way to view the Summary of Benefits and Coverage for any given plan presented, which is a summary form explaining the user's benefits and costs, [available here.](https://www.cms.gov/CCIIO/Resources/Files/Downloads/sbc-sample.pdf).
+**Links to actual plans** - give users a way to view the Summary of Benefits and Coverage for any given plan presented, which is a summary form explaining the user's benefits and costs, [available here](https://www.cms.gov/CCIIO/Resources/Files/Downloads/sbc-sample.pdf).
 
 **Add additional filters** - each state is divided in rating areas based on CMS rules, which correspond to various ZIP codes within each state. This project did not include a ZIP code filter, which limits the overall "accuracy" of plans recommended by the engine, but users can be cautioned to select a plan that corresponds with their selected region. A future iteration of this project might include a ZIP code filter that maps to each plan's Rating Areas.
