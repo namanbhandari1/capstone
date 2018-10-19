@@ -2,6 +2,9 @@
 _By Naman Bhandari_
 
 ## Directory Structure
+
+Note: notebooks \#1-4 cannot be run as they rely on certain pkl files that are not available in this GitHub repository.
+
 ```
 .
 ├── assets
@@ -50,6 +53,23 @@ Using a recommendation engine such as this, consumers can select the benefits th
 Using data from CMS and formatted and compiled by Kaggle (https://www.kaggle.com/hhs/health-insurance-marketplace/home), I have performed analysis and have built a recommender system.
 
 The data, in various CSV files, totals 3.4GB on disk. However, through various methods including some NumPy and Pandas manipulations, I have managed to compress the data when loaded, which was uploaded to a PostgreSQL server on AWS for querying. The raw data has close to 800 different benefits, some of which have been combined under single categories based on domain knowledge.
+
+## Technical Report
+
+An in-depth discussion of this project is found in the [technical report](Technical_Report.md).
+
+## Technologies Used
+
+Data necessary for querying and serving user recommendations was stored in a PostgreSQL server using a t2.micro AWS EC2 instance. 
+
+* **Data Management**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), [PostgreSQL](https://www.postgresql.org/)
+
+* **Modeling**: [scikit-learn cosine similarity](http://scikit-learn.org/0.19/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
+
+* **User Input**: [tkinter](http://effbot.org/tkinterbook/tkinter-index.htm)
+    
+* **Plotting**: [matplotlib](https://matplotlib.org/)
+    
 
 ## Directory Outline
 

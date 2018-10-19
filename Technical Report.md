@@ -2,6 +2,8 @@
 
 This technical report provides a sequential summary of the technical steps taken to process, explore, define, analyze, and draw conclusions from my data. In it, I outline the core tactics, methodologies, and libraries used in this project.
 
+Note: notebooks \#1-4 cannot be run as they rely on certain pkl files that are not available in this GitHub repository.
+
 ## Data from CMS via Kaggle
 
 The Centers for Medicare & Medicaid Services (CMS) Center for Consumer Information & Insurance
@@ -39,7 +41,7 @@ However, state-level PUFs are available data are available from a separate CMS p
 
 ## Pre-processing
 
-Two of the CSV files, `Rate.csv` and `BenefitsCostSharing.csv`, were very large in size when loaded into Pandas, at 9.3GB and 6.9GB each! The file sizes would have made it very difficult to perform manipulations or conduct analysis on the data:
+Two of the CSV files, `Rate.csv` and `BenefitsCostSharing.csv`, are very large in size when loaded into Pandas, at 9.3GB and 6.9GB each! The file sizes would have made it very difficult to perform manipulations or conduct analysis on the data:
 
     - `Rate.csv`: 12,700,000 rows x 24 cols (9.3GB)
     - `BenefitsCostSharing.csv` - 5,000,000 rows x 32 cols (6.9GB)
@@ -72,7 +74,7 @@ Were collapsed into one, renamed benefit:
 
     - Orthodontia, Cosmetic - Child
 
-### Vectorizing
+### One-hot encoding benefits
 
 After mapping plan names with my crosswalk, I one-hot encoded the benefits. To do this, I grouped by plan names and turned the rows benefits associated with each plan into columns for unique plan, filled with 1s and 0s based on coverage. This had the effect of reducing the number of rows, but increasing the number of columns in my data (data was made more rectangular).
 
@@ -80,6 +82,91 @@ After mapping plan names with my crosswalk, I one-hot encoded the benefits. To d
 <img src="assets/square2.png" />
 </p>
 
-### Identify unique vectors
+My resulting data was about 4 million rows by 232 columns in size, with each row corresponding to a unique plan, and columns corresponding to plan info, such as monthly premiums, and benefits data.
 
-I merged my rate data and dummied benefits data together on `'PlanId'`. I assigne d
+## Exploratory data analysis
+
+Most of the exploration was done based on the distributions of premiums and analyzing the number of benefits available relative to the monthly premium. This is because low-cost plans often do not have many covered benefits, yet plans that offer many benefits are relatively costly, with a gap in mid-level coverage:
+
+<p align="center">
+<img src="assets/scatter.png" />
+</p>
+
+The below graphs show the distribution of monthly premiums from $0 to $2,000, and $0 to $100. There are peaks clearly visible, which could be interesting to analyze further.
+
+<p align="center">
+<img src="assets/histogram-0-2000.png" />
+<img src="assets/histogram-0-100.png" />
+</p>
+
+The below graph shows the average premium in each available state (39 states). Most often, high costs in a given area can be explained by a relative lack of competition in the area. This is also something interesting that can be explored further.
+
+<p align="center">
+<img src="assets/premium-by-state.png" />
+</p>
+
+## Modeling
+
+### Vectorizing and storing
+
+By having my benefits one-hot encoded, I could now store the _unique_ combinations of benefits, and analyze them as unique vectors. I assigned a foreign key (which I called `'ben_key'`) to each unique combination (to be able to map back to the original plans), and then dropped all duplicate vectors, resulting in a matrix of unique vectors, called `no_dupes` (215 rows of unique benefit combinations x 207 columns of unique benefits).
+
+I then decided to add my final list of plans to a Postgres server on an AWS EC2 instance so as to make the data accessible for querying if put into a production or production-like environment. I did not include my one-hot encoded benefits on the server, since I already turned them into unique vectors, and mapped them with my foreign key called `'ben_key'`.
+
+The querying time for the data on my server (4,000,000 rows x 25 columns) is just under one second.
+
+### User input
+
+First, the user can run a function to filter the plans available on the Postgres server by State, Age, and Tobacco Use. This returns a dataframe of benefits matching that filter. Based on the filtering criteria applied, a list of available corresponding benefits is stored as a list that the user can select from.
+
+Using a library called `tkinter`, which is the standard Python interface to the Tk GUI toolkit, I ask users to select from the list of benefits mentioned above:
+
+<p align="center">
+<img src="assets/benefits_tkinter.png" />
+</p>
+
+### Recommendations
+
+A vector is created based on the benefits selected by the user and is compared against my `no_dupes` matrix. I perform a calculation called `cosine similarity`, using the scikit-learn cosine similarity library, which calculates the mathematical distance between two vectors. Based on such similarity, and list of matching plan types are shown:
+
++----------------+--------------+-----------+
+|   Plan Variant |   Similarity |   Index # |
++================+==============+===========+
+|            214 |     0.235702 |         0 |
++----------------+--------------+-----------+
+|              7 |     0.200446 |         1 |
++----------------+--------------+-----------+
+|              8 |     0.19696  |         2 |
++----------------+--------------+-----------+
+|             86 |     0.1905   |         3 |
++----------------+--------------+-----------+
+|            157 |     0.181902 |         4 |
++----------------+--------------+-----------+
+|            156 |     0.181902 |         5 |
++----------------+--------------+-----------+
+
+The user can then view all the plans available in the plan type selected. Individual plans in a given plan type chiefly vary by the geographic area in which the plan is offered, which CMS has defined for each state as part of the legislation passed in the Affordable Care Act.
+
+<p align="center">
+<img src="assets/matching_plans.png" />
+</p>
+
+### Evaluation
+
+We can evaluate whether the benefits selected by the user are present in the list of plans presented to them, like so:
+
+<p align="center">
+<img src="assets/benefits_avail.png" />
+</p>
+
+Using a recommendation engine such as this, consumers can select the benefits they want (examples: weight loss programs, chiropractic care, imaging, etc.) and be shown plans relevant to their health and be able to make better decision when purchasing insurance. A nimble, easy to navigate plan customization may also result in more uninsured people to purchase health insurance.
+
+## Future Steps
+
+**Add coarser layers of resolution** - though the recommendation system performs quite well with regards to finding plans that have the benefits you seek, it may be too granular of a selection criteria. A future attempt to create bigger buckets / categories that correspond to various plan groupings would help users make more generalized choices, but which would come at the expense of more generalized matches.
+
+**Conduct additional analysis on premiums** - perform a regression analysis that can identify the specific benefits that are the greatest contributors to cost in a given plan, and provide such proprietary information to the user.
+
+**Links to actual plans** - give users a way to view the Summary of Benefits and Coverage for any given plan presented, which is a summary form explaining the user's benefits and costs, [available here.](https://www.cms.gov/CCIIO/Resources/Files/Downloads/sbc-sample.pdf).
+
+**Add additional filters** - each state is divided in rating areas based on CMS rules, which correspond to various ZIP codes within each state. This project did not include a ZIP code filter, which limits the overall "accuracy" of plans recommended by the engine, but users can be cautioned to select a plan that corresponds with their selected region. A future iteration of this project might include a ZIP code filter that maps to each plan's Rating Areas.
