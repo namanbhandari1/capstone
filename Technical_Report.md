@@ -76,7 +76,7 @@ Were collapsed into one, renamed benefit:
 
 ### One-hot encoding benefits
 
-After mapping plan names with my crosswalk, I one-hot encoded the benefits. To do this, I grouped by PlanIds and transformed all the benefits associated with each plan into _columns_ sitting beside the plans, filled with 1s and 0s based on coverage. This had the effect of reducing the number of rows, but increasing the number of columns in my data (data was made more rectangular).
+After mapping plan names with my crosswalk, I one-hot encoded the benefits. To do this, I grouped by PlanIds and transformed all the benefits associated with each plan into _columns_ sitting beside the plans, filled with 1s and 0s based on coverage. This had the effect of reducing the number of rows, but increasing the number of columns in my data (data was made more square).
 
 <p align="center">
 <img src="assets/square2.png" />
@@ -127,7 +127,7 @@ Using a library called `tkinter`, which is the standard Python interface to the 
 
 ### Recommendations
 
-A vector is created based on the benefits selected by the user and is compared against my `no_dupes` matrix. I perform a calculation called `cosine similarity`, using the scikit-learn cosine similarity library, which calculates the mathematical distance between two vectors. Based on such similarity, and list of matching plan types are shown:
+A vector is created based on the benefits selected by the user and is compared against my `no_dupes` matrix. I perform a calculation called `cosine similarity`, using the scikit-learn cosine similarity library, which calculates the mathematical distance between two vectors. Based on such similarity, a list of matching plan types are shown:
 
 <p align="center">
 <img src="assets/tabulate.png" />
@@ -147,7 +147,7 @@ We can evaluate whether the benefits selected by the user are present in the lis
 <img src="assets/benefits_avail.png" />
 </p>
 
-Using a recommendation engine such as this, consumers can select the benefits they want (examples: weight loss programs, chiropractic care, imaging, etc.) and be shown plans relevant to their health and be able to make better decision when purchasing insurance. A nimble, easy to navigate plan customization may also result in more uninsured people to purchase health insurance.
+Using a recommendation engine such as this, consumers can select the benefits they want (examples: weight loss programs, chiropractic care, imaging, etc.) and be shown plans relevant to their health and be able to make better decisions when purchasing insurance. A nimble, easy to navigate plan customization may also result in more uninsured people purchasing health insurance.
 
 ## Future Steps
 
@@ -155,6 +155,6 @@ Using a recommendation engine such as this, consumers can select the benefits th
 
 **Conduct additional analysis on premiums** - perform a regression analysis that can identify the specific benefits that are the greatest contributors to cost in a given plan, and provide such proprietary information to the user.
 
-**Links to actual plans** - give users a way to view the Summary of Benefits and Coverage for any given plan presented, which is a summary form explaining the user's benefits and costs, [available here](https://www.cms.gov/CCIIO/Resources/Files/Downloads/sbc-sample.pdf).
+**Links to actual plans** - give users a way to view the Summary of Benefits and Coverage for any given plan presented, which is a summary form explaining the plan's benefits and costs, [available here](https://www.cms.gov/CCIIO/Resources/Files/Downloads/sbc-sample.pdf).
 
 **Add additional filters** - each state is divided in rating areas based on CMS rules, which correspond to various ZIP codes within each state. This project did not include a ZIP code filter, which limits the overall "accuracy" of plans recommended by the engine, but users can be cautioned to select a plan that corresponds with their selected region. A future iteration of this project might include a ZIP code filter that maps to each plan's Rating Areas.

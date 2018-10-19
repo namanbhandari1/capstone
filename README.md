@@ -29,7 +29,7 @@ The ACA attempted to fix this problem by requiring consumers of healthcare to pu
 
 When consumers of health insurance feel overwhelmed by choices and information, they can experience information overload and avoid making a choice as a result. Worse yet, without appropriate support through the process of choosing an insurance plan, many people could wind up with a plan that does not meet their needs and become saddled with bills as a result.  
 
-When consumers choose an insurance plan, they need to be able to weigh trade-offs between cost and coverage for insurance features. Picking a plan that provides the coverage needed at an affordable priceis a difficult task. It is especially difficult when you don’t have a great understanding of the language that insurers use to describe plans.
+When consumers choose an insurance plan, they need to be able to weigh trade-offs between cost and coverage for insurance features. Picking a plan that provides the coverage needed at an affordable price is a difficult task. It is especially difficult when you don’t have a great understanding of the language that insurers use to describe plans.
 
 <p align="center">
 <img src="assets/scatter.png" />
@@ -45,7 +45,7 @@ Using this data, we can build a system in which consumers can select the feature
 <img src="assets/benefits_avail.png" />
 </p>
 
-Using a recommendation engine such as this, consumers can select the benefits they want (examples: weight loss programs, chiropractic care, imaging, etc.) and be shown plans relevant to their health and be able to make better decision when purchasing insurance. A nimble, easy to navigate plan customization may also result in more uninsured people to purchase health insurance.
+Using a recommendation engine such as this, consumers can select the benefits they want (examples: weight loss programs, chiropractic care, imaging, etc.) and be shown plans relevant to their health and be able to make better decision when purchasing insurance. A nimble, easy to navigate plan customization may also result in more uninsured people purchasing health insurance.
 
 ### Data
 

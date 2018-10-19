@@ -8,7 +8,7 @@ This directory contains the notebooks which comprise the project.
 .
 ├── 01-Preprocessing.ipynb
 ├── 02-Clean_Benefits.ipynb
-├── 03-Clean_Rate_and_Plan_then_Merge.ipynb
+├── 03-Vectorize_Plans.ipynb
 ├── 04-EDA.ipynb
 ├── 05-Recommender.ipynb
 └── README.md
